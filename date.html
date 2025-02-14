@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Timer</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+        body {
+            font-family: 'Pacifico', cursive;
+            text-align: center;
+            background-color: #fff0f5;
+            color: #ff4081;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .container {
+            width: 80%;
+            max-width: 900px;
+            background: #fff;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        .title {
+            background: #ff99bb;
+            padding: 20px;
+            border-radius: 40px;
+            display: inline-block;
+            font-size: 32px;
+            font-weight: bold;
+        }
+        .time-box {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            font-size: 42px;
+            font-weight: bold;
+            margin-top: 30px;
+        }
+        .time-box div {
+            text-align: center;
+            padding: 20px;
+            background: #ffebf0;
+            border-radius: 15px;
+            width: 120px;
+        }
+        .button {
+            background: #ff4081;
+            color: white;
+            padding: 20px 40px;
+            border-radius: 30px;
+            border: none;
+            cursor: pointer;
+            margin-top: 40px;
+            font-size: 22px;
+            font-weight: bold;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+        .button:hover {
+            background: #d81b60;
+        }
+        audio {
+            position: absolute;
+            top: -9999px; /* Keeps the audio out of view */
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Music -->
+    <audio id="background-music" autoplay loop>
+        <source src="ssstik.io_1739489461292.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <div class="container">
+        <h2 class="title">How long have we been together? 💖</h2>
+        <h1 id="yearsMonths"></h1>
+        <div class="time-box">
+            <div><span id="days">0</span><br>Days</div>
+            <div><span id="hours">0</span><br>Hrs</div>
+            <div><span id="minutes">0</span><br>Mins</div>
+            <div><span id="seconds">0</span><br>Secs</div>
+        </div>
+        <div class="love-banner" >💑 Davit & Sophanna 💑</div>
+        <button class="button" onclick="location.href='lastpage.html'"> Click me UWU</button>
+    </div>
+
+    <script>
+        function updateTimer() {
+            let startDate = new Date("2024-10-27"); // Change this to your actual start date
+            let now = new Date();
+            let diff = now - startDate;
+
+            let years = now.getFullYear() - startDate.getFullYear();
+            let months = now.getMonth() - startDate.getMonth();
+            let days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            let hours = now.getHours() % 24;
+            let minutes = now.getMinutes();
+            let seconds = now.getSeconds();
+
+            if (months < 0) {
+                years--;
+                months += 12;
+            }
+
+            document.getElementById("yearsMonths").innerText = `${years} YEARS ${months} MONTHS`;
+            document.getElementById("days").innerText = days;
+            document.getElementById("hours").innerText = hours;
+            document.getElementById("minutes").innerText = minutes;
+            document.getElementById("seconds").innerText = seconds;
+        }
+
+        setInterval(updateTimer, 1000);
+        updateTimer();
+    </script>
+</body>
+</html>

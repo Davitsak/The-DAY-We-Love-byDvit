@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You Design</title>
+    <style>
+        body {
+            background-color: #f9f3ff; /* Soft lavender background */
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        #thankyou {
+            font-size: 36px;
+            font-family: 'Pacifico', cursive;
+            color: #ff6f91;
+            margin-bottom: 30px;
+            opacity: 0;
+            animation: fadeIn 3s forwards;
+        }
+
+        .flower {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            margin: 0 auto;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .petal {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: #ffb6c1;
+            border-radius: 50%;
+            opacity: 0;
+            transform: scale(0);
+            animation: grow 2s ease-in-out forwards, sway 2s ease-in-out infinite;
+        }
+
+        .petal:nth-child(1) { top: 10px; left: 60px; animation-delay: 0.2s; }
+        .petal:nth-child(2) { top: 60px; left: 10px; animation-delay: 0.4s; }
+        .petal:nth-child(3) { top: 110px; left: 60px; animation-delay: 0.6s; }
+        .petal:nth-child(4) { top: 60px; left: 110px; animation-delay: 0.8s; }
+
+        .flower__center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 30px;
+            height: 30px;
+            background-color: #f8c5cc;
+            border-radius: 50%;
+            opacity: 0;
+            animation: growCenter 2s ease-in-out forwards;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes grow {
+            0% { opacity: 0; transform: scale(0); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes sway {
+            0% { transform: rotate(0deg); }
+            50% { transform: rotate(15deg); }
+            100% { transform: rotate(0deg); }
+        }
+
+        @keyframes growCenter {
+            0% { opacity: 0; transform: scale(0); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+            100% { transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div id="thankyou">Thank you for being my girlfriend 💖</div>
+    <div class="flower">
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="flower__center"></div>
+    </div>
+</body>
+</html>
