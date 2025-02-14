@@ -40,6 +40,8 @@
             font-size: 28px;
             font-weight: bold;
             margin-bottom: 20px;
+            max-width: 100%; /* Prevents overflow */
+            word-wrap: break-word; /* Ensures long text wraps */
         }
 
         /* Time Box */
@@ -50,8 +52,7 @@
             font-size: 32px;
             font-weight: bold;
             margin-top: 20px;
-            flex-wrap: wrap; /* Allows wrapping to new lines */
-            width: 100%; /* Ensures it stays within the parent */
+            flex-wrap: wrap;
         }
 
         .time-box div {
@@ -59,8 +60,7 @@
             padding: 15px;
             background: #ffebf0;
             border-radius: 15px;
-            width: calc(25% - 20px); /* Four boxes per row minus gaps */
-            min-width: 80px;
+            width: 100px;
             margin: 10px;
         }
 
@@ -94,12 +94,13 @@
 
             .time-box {
                 font-size: 24px;
-                flex-direction: row;
-                flex-wrap: wrap;
+                flex-direction: column;
+                align-items: center;
             }
 
             .time-box div {
-                width: calc(50% - 20px); /* Two boxes per row */
+                width: 80%;
+                font-size: 28px;
             }
 
             .button {
@@ -114,7 +115,7 @@
             }
 
             .time-box div {
-                width: 100%; /* Stack boxes vertically */
+                width: 90%;
                 font-size: 24px;
             }
 
@@ -153,15 +154,15 @@
 
             let years = now.getFullYear() - startDate.getFullYear();
             let months = now.getMonth() - startDate.getMonth();
+            let days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            let hours = now.getHours() % 24;
+            let minutes = now.getMinutes();
+            let seconds = now.getSeconds();
+
             if (months < 0) {
                 years--;
                 months += 12;
             }
-
-            let days = Math.floor(diff / (1000 * 60 * 60 * 24));
-            let hours = Math.floor(diff / (1000 * 60 * 60)) % 24;
-            let minutes = Math.floor(diff / (1000 * 60)) % 60;
-            let seconds = Math.floor(diff / 1000) % 60;
 
             document.getElementById("yearsMonths").innerText = `${years} YEARS ${months} MONTHS`;
             document.getElementById("days").innerText = days;
