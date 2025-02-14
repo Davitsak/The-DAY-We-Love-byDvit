@@ -7,6 +7,7 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
+        /* General Styles */
         body {
             font-family: 'Pacifico', cursive;
             text-align: center;
@@ -19,56 +20,107 @@
             justify-content: center;
             align-items: center;
             position: relative;
+            flex-direction: column;
         }
+
         .container {
-            width: 80%;
+            width: 90%;
             max-width: 900px;
             background: #fff;
-            padding: 50px;
+            padding: 30px;
             border-radius: 20px;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
         }
+
         .title {
             background: #ff99bb;
             padding: 20px;
             border-radius: 40px;
             display: inline-block;
-            font-size: 32px;
+            font-size: 28px;
             font-weight: bold;
+            margin-bottom: 20px;
         }
+
+        /* Time Box */
         .time-box {
             display: flex;
             justify-content: center;
-            gap: 50px;
-            font-size: 42px;
+            gap: 20px;
+            font-size: 32px;
             font-weight: bold;
-            margin-top: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
         }
+
         .time-box div {
             text-align: center;
-            padding: 20px;
+            padding: 15px;
             background: #ffebf0;
             border-radius: 15px;
-            width: 120px;
+            width: 100px;
+            margin: 10px;
         }
+
         .button {
             background: #ff4081;
             color: white;
-            padding: 20px 40px;
+            padding: 15px 30px;
             border-radius: 30px;
             border: none;
             cursor: pointer;
             margin-top: 40px;
-            font-size: 22px;
+            font-size: 20px;
             font-weight: bold;
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
         }
+
         .button:hover {
             background: #d81b60;
         }
+
         audio {
             position: absolute;
             top: -9999px; /* Keeps the audio out of view */
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .title {
+                font-size: 24px;
+            }
+
+            .time-box {
+                font-size: 24px;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .time-box div {
+                width: 80%;
+                font-size: 28px;
+            }
+
+            .button {
+                font-size: 18px;
+                padding: 12px 24px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .title {
+                font-size: 20px;
+            }
+
+            .time-box div {
+                width: 90%;
+                font-size: 24px;
+            }
+
+            .button {
+                font-size: 16px;
+                padding: 10px 20px;
+            }
         }
     </style>
 </head>
@@ -89,7 +141,7 @@
             <div><span id="seconds">0</span><br>Secs</div>
         </div>
         <div class="love-banner" >💑 Davit & Sophanna 💑</div>
-        <button class="button" onclick="location.href='lastpage.html'"> Click me UWU</button>
+        <button class="button" onclick="location.href='lastpage.html'">Click me UWU</button>
     </div>
 
     <script>
