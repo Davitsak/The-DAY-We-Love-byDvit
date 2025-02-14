@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Timer</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+        /* General Styles */
+        body {
+            font-family: 'Pacifico', cursive;
+            text-align: center;
+            background-color: #fff0f5;
+            color: #ff4081;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            flex-direction: column;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 900px;
+            background: #fff;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .title {
+            background: #ff99bb;
+            padding: 20px;
+            border-radius: 40px;
+            display: inline-block;
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        /* Time Box */
+        .time-box {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            font-size: 32px;
+            font-weight: bold;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .time-box div {
+            text-align: center;
+            padding: 15px;
+            background: #ffebf0;
+            border-radius: 15px;
+            width: 100px;
+            margin: 10px;
+        }
+
+        .button {
+            background: #ff4081;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            border: none;
+            cursor: pointer;
+            margin-top: 40px;
+            font-size: 20px;
+            font-weight: bold;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .button:hover {
+            background: #d81b60;
+        }
+
+        audio {
+            position: absolute;
+            top: -9999px; /* Keeps the audio out of view */
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .title {
+                font-size: 24px;
+            }
+
+            .time-box {
+                font-size: 24px;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .time-box div {
+                width: 80%;
+                font-size: 28px;
+            }
+
+            .button {
+                font-size: 18px;
+                padding: 12px 24px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .title {
+                font-size: 20px;
+            }
+
+            .time-box div {
+                width: 90%;
+                font-size: 24px;
+            }
+
+            .button {
+                font-size: 16px;
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Music -->
+    <audio id="background-music" autoplay loop>
+        <source src="ssstik.io_1739489461292.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <div class="container">
+        <h2 class="title">How long have we been together? 💖</h2>
+        <h1 id="yearsMonths"></h1>
+        <div class="time-box">
+            <div><span id="days">0</span><br>Days</div>
+            <div><span id="hours">0</span><br>Hrs</div>
+            <div><span id="minutes">0</span><br>Mins</div>
+            <div><span id="seconds">0</span><br>Secs</div>
+        </div>
+        <div class="love-banner" >💑 Davit & Sophanna 💑</div>
+        <button class="button" onclick="location.href='lastpage.html'">Click me UWU</button>
+    </div>
+
+    <script>
+        function updateTimer() {
+            let startDate = new Date("2024-10-27"); // Change this to your actual start date
+            let now = new Date();
+            let diff = now - startDate;
+
+            let years = now.getFullYear() - startDate.getFullYear();
+            let months = now.getMonth() - startDate.getMonth();
+            let days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            let hours = now.getHours() % 24;
+            let minutes = now.getMinutes();
+            let seconds = now.getSeconds();
+
+            if (months < 0) {
+                years--;
+                months += 12;
+            }
+
+            document.getElementById("yearsMonths").innerText = `${years} YEARS ${months} MONTHS`;
+            document.getElementById("days").innerText = days;
+            document.getElementById("hours").innerText = hours;
+            document.getElementById("minutes").innerText = minutes;
+            document.getElementById("seconds").innerText = seconds;
+        }
+
+        setInterval(updateTimer, 1000);
+        updateTimer();
+    </script>
+</body>
+</html>
